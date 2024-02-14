@@ -14,16 +14,13 @@ enum WeatherAPI {
     var baseURL: String {
         return "http://api.openweathermap.org/data/2.5/"
     }
-    var appid: String {
-        return ""
-    }
     
     var url: URL {
         switch self {
         case .currentWeather(let lat, let lon):
-            return URL(string: baseURL + "weather?lat=\(lat)&lon=\(lon)&appid=\(appid)")!
+            return URL(string: baseURL + "weather?lat=\(lat)&lon=\(lon)&appid=\(APIKey.appid)")!
         case .weather(let lat, let lon):
-            return URL(string: baseURL + "forecast?lat=\(lat)&lon=\(lon)&appid=\(appid)")!
+            return URL(string: baseURL + "forecast?lat=\(lat)&lon=\(lon)&appid=\(APIKey.appid)")!
         }
     }
 }
